@@ -18,7 +18,7 @@ This social site allows users to connect with each other, share posts, and engag
 
 * User registration and login
 * User profiles with customizable avatars and bios
-* Post creation with text, images, and videos
+* Post creation with text, images
 * Commenting and liking on posts
 * Real-time updates and notifications
 * Follow and unfollow other users
