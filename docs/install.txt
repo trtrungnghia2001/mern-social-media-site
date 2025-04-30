@@ -1,0 +1,18 @@
+nodejs
+
+npm install http-errors http-status-codes
+npm install nodemon cors dotenv express body-parser cookie-parser multer cloudinary mongoose slug
+npm install bcrypt crypto-js joi jsonwebtoken nodemailer 
+npm install passport passport-github2 passport-google-oauth20 
+npm install socket.io
+npm install redis 
+
+vite
+npm install react-icons --save
+npm install react-router-dom
+npm install @tanstack/react-query
+npm install axios 
+npm install zustand
+npm install clsx
+npm install react-hot-toast
+npm install swiper

@@ -1,0 +1,64 @@
+POST http://localhost:5000/api/auth/signup
+Content-Type: application/json
+
+{
+    "name":"John Smith",
+    "email":"phelanwhite.business@gmail.com",
+    "password":"password123",
+    "confirm_password":"password123"
+}
+
+###
+POST http://localhost:5000/api/auth/signin
+Content-Type: application/json
+
+{
+    "email":"phelanwhite.business@gmail.com",
+    "password":"password123"
+}
+
+###
+POST http://localhost:5000/api/auth/refresh-token
+
+###
+DELETE  http://localhost:5000/api/auth/signout
+
+###
+POST http://localhost:5000/api/auth/forgot-password
+Content-Type: application/json
+
+{
+    "email":"phelanwhite.business@gmail.com"
+}
+
+###
+POST http://localhost:5000/api/auth/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDA3NDI1NDIsImV4cCI6MTc0MDgyODk0Mn0.sTOfPoO6nv0x-i56OoTTnJI91cXNVt8X8_HW2yYEmgo
+Content-Type: application/json
+
+{
+    "new_password":"password123",
+    "confirm_new_password":"password123"
+}
+
+
+
+###
+PUT http://localhost:5000/api/auth/change-password
+Content-Type: application/json
+
+{
+    "new_password":"password123",
+    "confirm_new_password":"password123"
+}
+
+###
+GET  http://localhost:5000/api/auth/get-me
+
+###
+PUT http://localhost:5000/api/auth/update-me
+Content-Type: application/json
+
+{
+    "name":"phelanwhite.business"
+}
+
