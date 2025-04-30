@@ -9,18 +9,21 @@ const PostCardInfiniteScroll = ({
   loadMore,
   hasMore,
   isForm,
+  isLoading,
 }: {
   datas: PostType[]
   loadMore: () => Promise<void>
   hasMore: boolean
   isForm?: boolean
+  isLoading: boolean
 }) => {
   const { user } = useAuthStore()
   return (
     <div className="space-y-4">
       {user && isForm && <PostCardButton />}
       <section className="space-y-4">
-        {datas.length === 0 && (
+        {isLoading && <div className="text-center">Loading...</div>}
+        {!isLoading && datas.length === 0 && (
           <div className="text-center">No Posts Found</div>
         )}
         <InfiniteScroll

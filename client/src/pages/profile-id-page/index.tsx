@@ -167,6 +167,7 @@ const ProfileIdPage = () => {
         <div className="flex-1 w-full">
           {/* posts */}
           <PostCardInfiniteScroll
+            isLoading={getPostGetUserIdResult.isLoading}
             loadMore={async () => {
               await getPostGetUserIdResult.fetchNextPage()
             }}

@@ -89,6 +89,7 @@ const HomePage = () => {
             postGetAllResult.data?.pages.flatMap((item) => item.data.results) ||
             []
           }
+          isLoading={postGetAllResult.isLoading}
           isForm
         />
       </section>
