@@ -20,7 +20,7 @@ This social site allows users to connect with each other, share posts, and engag
 * User profiles with customizable avatars and bios
 * Post creation with text, images
 * Commenting and liking on posts
-* Real-time updates and notifications
+* Real-time notifications and chat
 * Follow and unfollow other users
 * Search functionality for users and posts
 
