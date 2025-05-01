@@ -33,8 +33,9 @@ This social site allows users to connect with each other, share posts, and engag
 
 ## Demo
 
-[https://mern-ecommerce-site-client-s8db.onrender.com/](https://mern-ecommerce-site-client-s8db.onrender.com/)
+[https://mern-social-media-site-client.onrender.com/](https://mern-social-media-site-client.onrender.com/)
 
 ## Images
 
-![mern-ecommerce-site](https://github.com/user-attachments/assets/f9f3d6f7-beea-49ec-9d7f-919be1508983)
+![screencapture-mern-social-media-site-client-onrender-2025-05-01-17_05_19](https://github.com/user-attachments/assets/53ecc2aa-ee32-48c0-bcba-11d07f22a3d5)
+
