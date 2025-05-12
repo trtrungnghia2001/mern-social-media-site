@@ -39,3 +39,4 @@ This social site allows users to connect with each other, share posts, and engag
 
 ![screencapture-mern-social-media-site-client-onrender-2025-05-01-17_05_19](https://github.com/user-attachments/assets/53ecc2aa-ee32-48c0-bcba-11d07f22a3d5)
 
+![screencapture-mern-social-media-site-client-onrender-messages-6811e973d219858692e45f60-2025-05-12-13_59_42](https://github.com/user-attachments/assets/4b5e3070-cdd0-4ae9-832a-10e05bb0b747)
