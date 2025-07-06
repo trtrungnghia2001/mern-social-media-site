@@ -9,15 +9,14 @@ import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
 import PostCardInfiniteScroll from '@/features/post/components/PostCardInfiniteScroll'
 import { postGetAllApi } from '@/services/post.api'
 import { useAuthStore } from '@/features/authentication/stores/auth.store'
-import { storyGetAllApi } from '@/services/story.api'
 
 const HomePage = () => {
   const { user } = useAuthStore()
 
-  const { datas: stories } = useStoryStore()
+  const { datas: stories, getAll } = useStoryStore()
   const getStoriesResult = useQuery({
     queryKey: ['stories'],
-    queryFn: async () => await storyGetAllApi(),
+    queryFn: async () => await getAll(),
     enabled: !!user,
   })
 
@@ -44,7 +43,8 @@ const HomePage = () => {
       <Left />
       <section className="flex-1 max-w-xl mx-auto space-y-6 overflow-hidden">
         {/* stories */}
-        {user && (
+        {getStoriesResult.isLoading && <div>Loading story...</div>}
+        {getStoriesResult.data && user && (
           <Swiper
             spaceBetween={8}
             slidesPerView={3}
@@ -67,11 +67,6 @@ const HomePage = () => {
               <StoryCardButton />
             </SwiperSlide>
             {stories.map((item) => (
-              <SwiperSlide key={item._id}>
-                <StoryCard data={item} />
-              </SwiperSlide>
-            ))}
-            {getStoriesResult.data?.data.results.map((item) => (
               <SwiperSlide key={item._id}>
                 <StoryCard data={item} />
               </SwiperSlide>

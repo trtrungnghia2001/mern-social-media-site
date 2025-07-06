@@ -3,6 +3,7 @@ import { useAuthStore } from '@/features/authentication/stores/auth.store'
 import { RiFlagFill, RiImageAiFill, RiLiveFill } from 'react-icons/ri'
 import { usePostFormStore } from '../stores/post.form.store'
 import { Link } from 'react-router-dom'
+import { memo } from 'react'
 
 const actions = [
   {
@@ -58,4 +59,4 @@ const PostCardButton = () => {
   )
 }
 
-export default PostCardButton
+export default memo(PostCardButton)

@@ -4,7 +4,6 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import passport from 'passport'
 import session from 'express-session'
-import path from 'path'
 
 import { connectMongoDB } from './configs/database.config.js'
 import { connectRedis } from './configs/redis.config.js'

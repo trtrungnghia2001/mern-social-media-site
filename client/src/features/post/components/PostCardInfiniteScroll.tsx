@@ -3,6 +3,7 @@ import PostCard from './PostCard'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import PostCardButton from './PostCardButton'
 import { useAuthStore } from '@/features/authentication/stores/auth.store'
+import { memo } from 'react'
 
 const PostCardInfiniteScroll = ({
   datas,
@@ -42,4 +43,4 @@ const PostCardInfiniteScroll = ({
   )
 }
 
-export default PostCardInfiniteScroll
+export default memo(PostCardInfiniteScroll)

@@ -39,17 +39,30 @@ const CommentContainer = ({ postId }: Type) => {
     enabled: !!postId,
   })
 
+  const customComment = useMemo(() => {
+    let data = comments.filter(
+      (item) => item.post._id === postId && item.comment === undefined,
+    )
+
+    if (getCommentGetPostIdResult.data) {
+      const dataResp = getCommentGetPostIdResult.data?.pages.flatMap(
+        (item) => item.data.results,
+      )
+
+      data = data.concat(dataResp)
+    }
+
+    return data
+  }, [comments, getCommentGetPostIdResult.data])
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 border-t pt-4">
       {user && <CommentCreateUpdateForm postId={postId} />}
-      {commentsByPost.map((item) => (
-        <CommentCard key={item._id} data={item} />
-      ))}
-      {getCommentGetPostIdResult.data?.pages
-        .flatMap((item) => item.data.results)
-        .map((item) => (
-          <CommentCard key={item._id} data={item} />
-        ))}
+      {customComment.length > 0 ? (
+        customComment.map((item) => <CommentCard key={item._id} data={item} />)
+      ) : (
+        <p className="text-center text-textColorSecondary">No comments yet</p>
+      )}
 
       {getCommentGetPostIdResult.hasNextPage && (
         <button
