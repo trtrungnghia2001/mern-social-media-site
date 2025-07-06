@@ -55,7 +55,7 @@ const MessageSidebar: FC<IMessageSidebar> = ({ className, open, onClose }) => {
   return (
     <div
       className={clsx([
-        `max-w-xs w-full bg-bgColorBox rounded-lg px-2 py-3 max-h-screen overflow-y-auto`,
+        `max-w-xs w-full bg-bgColorBox rounded-lg px-2 py-3 overflow-y-auto`,
         className,
       ])}
     >
@@ -93,6 +93,7 @@ const MessageSidebar: FC<IMessageSidebar> = ({ className, open, onClose }) => {
               {onlineUsers.filter((item) => item !== user?._id).length})
             </label>
           </li>
+          {/* user */}
           {users.map((item) => (
             <li key={item._id}>
               <NavLink

@@ -1,14 +1,12 @@
-import React, { memo } from 'react'
+import React, { FC, HTMLAttributes, memo } from 'react'
 
-const WrapperComponent = ({
+const WrapperComponent: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   className,
-}: {
-  children: React.ReactNode
-  className?: string
+  ...props
 }) => {
   return (
-    <div className={`max-w-7xl w-full mx-auto px-3 ${className}`}>
+    <div className={`max-w-7xl w-full mx-auto px-3 ${className}`} {...props}>
       {children}
     </div>
   )

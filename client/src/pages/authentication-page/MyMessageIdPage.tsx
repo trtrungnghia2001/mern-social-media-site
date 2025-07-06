@@ -6,7 +6,7 @@ import { userGetIdApi } from '@/services/user.api'
 import { displayTime } from '@/utils/time'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import clsx from 'clsx'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FaFileImage } from 'react-icons/fa'
 import { IoIosSend } from 'react-icons/io'
 import { MdClose } from 'react-icons/md'
@@ -74,25 +74,21 @@ const MyMessageIdPage = () => {
     unsubscribeFromMessages,
   ])
 
-  const messageEndRef = useRef<HTMLUListElement | null>(null)
+  const bottomRef = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
-    if (messageEndRef.current && messages) {
-      messageEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-    }
+    bottomRef.current?.scrollIntoView({
+      behavior: 'smooth',
+    })
   }, [messages])
 
-  const h_chat_top = document.getElementById('chat-top')?.offsetHeight || 0
-  const h_chat_input = document.getElementById('chat-input')?.offsetHeight || 0
-  const h_chat_container =
-    document.getElementById('chat-container')?.offsetHeight || 0
-  const height = useMemo(() => {
-    return `calc(${h_chat_container - h_chat_top - h_chat_input}px)`
-  }, [h_chat_input, h_chat_top, h_chat_container, file])
-
   return (
-    <div className={clsx([`bg-bgColorBox p-3 rounded-lg space-y-4 relative `])}>
+    <div
+      className={clsx([
+        `bg-bgColorBox p-3 rounded-lg relative h-full flex flex-col gap-4 justify-between`,
+      ])}
+    >
       {/* top */}
-      <div id="chat-top" className={`flex items-center gap-3 border-b pb-2`}>
+      <div className={`flex items-center gap-3 border-b pb-2`}>
         <div className="relative">
           <div className="w-9 aspect-square overflow-hidden rounded-full">
             <img
@@ -117,60 +113,61 @@ const MyMessageIdPage = () => {
         </div>
       </div>
       {/* messages */}
-      <ul
-        className="space-y-4 overflow-y-auto"
-        ref={messageEndRef}
-        style={{ height: height, marginBottom: h_chat_input }}
-      >
-        {getChatByUserIdResult.isLoading && <li>Loading...</li>}
-        {messages?.map((item) => (
-          <li
-            key={item._id}
-            className={clsx([
-              `flex`,
-              item.sender._id === user?._id ? `justify-end` : `justify-start`,
-            ])}
-          >
-            <div className="flex items-end gap-2 max-w-[50%]">
-              <div
-                className={clsx([
-                  `flex-1 overflow-hidden flex flex-col gap-1`,
-                  item.sender._id === user?._id ? `items-end` : `items-start`,
-                ])}
-              >
-                {item.file_url && (
-                  <div className="w-40 overflow-hidden rounded">
-                    <img src={item.file_url} alt={item.file_url} />
-                  </div>
-                )}
-                {item.message && (
-                  <div
-                    className={clsx([
-                      `whitespace-break-spaces break-words px-3 py-1 rounded w-max`,
-                      item.sender._id === user?._id
-                        ? `bg-blue-500 text-white`
-                        : `bg-gray-100`,
-                    ])}
-                    dangerouslySetInnerHTML={{ __html: item.message }}
-                  ></div>
-                )}
-                <p
+      <div className="flex-1 overflow-y-auto">
+        {getChatByUserIdResult.isLoading && <div>Loading...</div>}
+
+        <ul className="space-y-4 ">
+          {messages?.map((item) => (
+            <li
+              key={item._id}
+              className={clsx([
+                `flex`,
+                item.sender._id === user?._id ? `justify-end` : `justify-start`,
+              ])}
+            >
+              <div className="flex items-end gap-2 max-w-[50%]">
+                <div
                   className={clsx([
-                    `text-xs text-textColorSecondary`,
-                    item.sender._id === user?._id ? `text-right` : `text-left`,
+                    `flex-1 overflow-hidden flex flex-col gap-1`,
+                    item.sender._id === user?._id ? `items-end` : `items-start`,
                   ])}
                 >
-                  {displayTime(item.createdAt)}
-                </p>
+                  {item.file_url && (
+                    <div className="w-40 overflow-hidden rounded">
+                      <img src={item.file_url} alt={item.file_url} />
+                    </div>
+                  )}
+                  {item.message && (
+                    <div
+                      className={clsx([
+                        `whitespace-break-spaces break-words px-3 py-1 rounded w-max`,
+                        item.sender._id === user?._id
+                          ? `bg-blue-500 text-white`
+                          : `bg-gray-100`,
+                      ])}
+                      dangerouslySetInnerHTML={{ __html: item.message }}
+                    ></div>
+                  )}
+                  <p
+                    className={clsx([
+                      `text-xs text-textColorSecondary`,
+                      item.sender._id === user?._id
+                        ? `text-right`
+                        : `text-left`,
+                    ])}
+                  >
+                    {displayTime(item.createdAt)}
+                  </p>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <div
-        id="chat-input"
-        className="absolute bottom-0 left-0 right-0 bg-bgColorBox z-50 p-3"
-      >
+            </li>
+          ))}
+        </ul>
+
+        <div ref={bottomRef}></div>
+      </div>
+      {/* input */}
+      <div className="bg-bgColorBox z-50 p-3">
         {/* preview file*/}
         {previewFile && (
           <div className="bg-bgColorBox border-t absolute left-3 right-3 -top-20 pt-1.5">
