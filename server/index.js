@@ -14,7 +14,7 @@ import { app, server } from './configs/socket.config.js'
 
 // connect database
 await connectMongoDB()
-await connectRedis()
+// await connectRedis()
 
 const isProduction = ENV_CONFIG.NODE_ENV === 'production'
 // cors
