@@ -27,7 +27,7 @@ export const ads: PostType[] = [
     },
     content: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut similique reiciendis dicta esse. Dolorum sequi laudantium, perferendis voluptates optio hic. Id unde dolorum omnis, hic eligendi aperiam excepturi doloremque facilis!`,
     file_url:
-      'https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25053087/BLUE_EYE_SAMURAI_u_S1_E1_00_19_31_06_R_copy.jpg?quality=90&strip=all&crop=7.8125,0,84.375,100',
+      'https://kenh14cdn.com/203336854389633024/2022/6/26/3-16562337204821522976067.jpg',
     createdAt: new Date().toString(),
     updatedAt: new Date().toString(),
     isLiked: false,
