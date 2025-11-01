@@ -37,6 +37,8 @@ This social site allows users to connect with each other, share posts, and engag
 
 ## Images
 
-![screencapture-localhost-5173-2025-07-06-16_23_51](https://github.com/user-attachments/assets/95de0d76-ba62-4570-9eae-2b036aecb0c3)
+<img width="1920" height="2865" alt="1" src="https://github.com/user-attachments/assets/8771991f-c0c8-49c3-8887-8d31a35678dd" />
 
-![screencapture-mern-social-media-site-client-onrender-messages-6811e973d219858692e45f60-2025-05-12-13_59_42](https://github.com/user-attachments/assets/4b5e3070-cdd0-4ae9-832a-10e05bb0b747)
+<img width="1920" height="2938" alt="2" src="https://github.com/user-attachments/assets/0cd37642-4ca5-414b-bad6-84a5817c5486" />
+
+<img width="1920" height="857" alt="Screenshot (67)" src="https://github.com/user-attachments/assets/d795196b-54e1-456a-a17d-8903a054fa2c" />
