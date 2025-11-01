@@ -167,7 +167,7 @@ const MyMessageIdPage = () => {
         <div ref={bottomRef}></div>
       </div>
       {/* input */}
-      <div className="bg-bgColorBox z-50 p-3">
+      <div className="bg-bgColorBox z-50 p-3 relative">
         {/* preview file*/}
         {previewFile && (
           <div className="bg-bgColorBox border-t absolute left-3 right-3 -top-20 pt-1.5">
